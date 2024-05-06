@@ -1,16 +1,44 @@
 from flask import Flask,redirect,url_for,render_template,request
 import json
+import difflib
+
+
 app=Flask(__name__)
 
 
+def find_closest_match(word, word_set):
+    
+    closest_match = difflib.get_close_matches(word, list(word_set), n=1, cutoff=0.7)  
+    return closest_match[0] if closest_match else None
+
+
+file_path="static/names.json"
+with open(file_path, "r") as json_file:
+            names_dict = json.load(json_file)
+
+classes=set(names_dict.keys())
 
 @app.route("/",methods=["POST","GET"])
 def home():
 
-    if(request.method=="POST"):
 
+    if(request.method=="POST"):
+        print("called")
         class_nm=request.form["class"]
-        build_json(class_nm)
+        if(class_nm in classes):
+            build_json(class_nm)
+
+        else:
+            closest_match=find_closest_match(class_nm,classes)
+
+            build_json(closest_match)
+
+        
+        
+
+        
+
+        
 
         return render_template("ontology_tree.html")
     else:

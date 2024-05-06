@@ -48570,5 +48570,129 @@
     "Check Transaction Successful": {
         "super": "Transaction Status",
         "def": "Transaction completed successfully."
+    },
+    "sali:usedFor": {
+        "super": "None",
+        "def": "Relationship declaring how one item (e.g., `Tool` like `Westlaw` or `vLex`) might be used for another item (e.g., `Legal Research`)."
+    },
+    "sali:concerning": {
+        "super": "None",
+        "def": "Example: (Motion) sali:concerning (Summary Judgment)"
+    },
+    "DEPRECATED Activities": {
+        "super": "None",
+        "def": "DEPRECATED SEE RELATIONSHIP PROPERTIES: Relationship Properties (Verbs), NOT Classes (Nouns)"
+    },
+    "System Identifiers": {
+        "super": "None",
+        "def": "Unique identifiers (e.g., IRIs, UUIDs, GUIDs) within the systems of stakeholders (e.g., vendors, sellers, buyers, courts)."
+    },
+    "Matter Narrative": {
+        "super": "None",
+        "def": "A textual narrative of a matter's factual and legal details."
+    },
+    "Standards Compatibility": {
+        "super": "None",
+        "def": "Existing standards (e.g., UTBMS, LEDES, PACER) and their components' mappings (relationships) to their SALI LMSS counterparts."
+    },
+    "Location": {
+        "super": "None",
+        "def": "The name of a position on the Earth, usually in the context of continents, countries, and their political subdivisions (e.g., regions, states or provinces, cities, towns, villages)."
+    },
+    "Data Format": {
+        "super": "None",
+        "def": "The data structure that gives the file its meaning; in the context of legal data, the format of the legal-data file (e.g., Microsoft Word Document, Adobe Acrobat PDF, Microsoft Excel file)."
+    },
+    "Legal Use Cases": {
+        "super": "None",
+        "def": "Legal Use Cases refers to a set of various categories of tasks within the legal industry, which can be completed by humans, machines, or both. Examples include legal research, contract management, intellectual property management, compliance management, and other organizational' use cases for legal work."
+    },
+    "sali:hasBenefit": {
+        "super": "None",
+        "def": "Who has the benefit of an item? EXAMPLE: Whom does Contractual Directionality benefit? Example:  Party A indemnifying Party B benefits Party B. Example: Party A receiving Party B's goods benefits Party A."
+    },
+    "sali:engaged": {
+        "super": "None",
+        "def": "E.g., Lawyer sali:engaged Expert"
+    },
+    "Service": {
+        "super": "None",
+        "def": "The legal work performed, usually by a Legal Services Provider, in the course of a legal matter."
+    },
+    "sali:arrived": {
+        "super": "None",
+        "def": "Arrival at a location, by a person or object, which can have litigation, immigration, tax, and other regulatory effects."
+    },
+    "Forums and Venues": {
+        "super": "None",
+        "def": "Forums and Venues refer to organizational or governmental entities where legal proceedings occur. The term \"forum\" describes the jurisdiction or court type, while \"venue\" refers to the actual location, such as the courthouse, jurisdiction, or judicial district."
+    },
+    "sali:departed": {
+        "super": "None",
+        "def": "Departure from a location, by a person or object, which can have litigation, immigration, tax, and other regulatory effects."
+    },
+    "sali:hasObligation": {
+        "super": "None",
+        "def": "In which direction does the obligation flow? Example: \"Party A indemnifies Party B.\""
+    },
+    "Event": {
+        "super": "None",
+        "def": "A matter's events, as well as collections of those events (often noted as \"phases\")."
+    },
+    "sali:opposed": {
+        "super": "None",
+        "def": "In the context of an argument, \"opposed\" refers to the stance taken against a particular claim, assertion, or position. An opposed argument counters or refutes the original claim by presenting contrary evidence, reasoning, or viewpoints. In debates or discussions, this oppositional stance is vital for ensuring a comprehensive exploration of the topic at hand."
+    },
+    "Currency": {
+        "super": "None",
+        "def": "A standardization of money that is used, circulated, or exchanged (e.g., banknotes, coins)."
+    },
+    "sali:isDefending": {
+        "super": "None",
+        "def": "Defense of Deposition refers to the strategic and legal actions taken by a party's attorney to protect their client during a deposition. The attorney seeks to guide the deponent in providing accurate but limited information, objecting to inappropriate questions, and ensuring that the deposition serves the best interests of the client."
+    },
+    "Legal Authorities": {
+        "super": "None",
+        "def": "Documents or publications that guide legal rights and obligations (e.g., caselaw, statutes, regulations, rules) or that can be cited as providing guidance on the law (e.g., secondary legal authorities)."
+    },
+    "Governmental Body": {
+        "super": "None",
+        "def": "Administrative entities of government or state agency or appointed commission, as a permanent or semi-permanent governmental organization that oversees or administers specific governmental functions."
+    },
+    "Document / Artifact": {
+        "super": "None",
+        "def": "A written, drawn, presented, or memorialized representation of thought or expression, including evidence such as recordings and other artifacts."
+    },
+    "Area of Law": {
+        "super": "None",
+        "def": "The practice area into which a legal matter or legal area of study falls (e.g., Criminal Law, Real Property Law, Mergers and Acquisitions Law, Personal and Family Law, Tax and Revenue Law)."
+    },
+    "sali:served": {
+        "super": "None",
+        "def": "The act of legally serving something (e.g., a document) upon another entity. Example: Serving a Complaint upon a Defendant."
+    },
+    "TR:SALI": {
+        "super": "None",
+        "def": "Mapping between Thomson Reuters concepts (i.e., labels, identifiers) and SALI concepts."
+    },
+    "Objectives": {
+        "super": "None",
+        "def": "Specific aims, goals, arguments, plans, intentions, designs, purposes, schemes, etc. that are constructed by a party in a legal matter, and the legal or other professional frameworks that support their execution."
+    },
+    "sali:supported": {
+        "super": "None",
+        "def": "In the context of an argument, \"supported\" refers to the backing or justification provided for a particular claim or assertion using evidence, logical reasoning, or relevant facts. A well-supported argument is strengthened by its corroborating information, making it more persuasive and credible to its audience."
+    },
+    "sali:destroyed": {
+        "super": "None",
+        "def": "To destroy an artifact. Example: Party destroyed evidence. Example: Provider destroyed a Buyer's (e.g., a client's) closed and dormant file. Example: Party destroyed data according to its Document Retention Policy."
+    },
+    "Language": {
+        "super": "None",
+        "def": "Written or spoken structured system of communication that consists of grammar and vocabulary; in the context of legal matters, the language of a document, artifact, evidence, testimony, proceeding, or any other legal aspect (e.g., English, Spanish, German, French, Russian, Chinese)."
+    },
+    "sali:obtained": {
+        "super": "None",
+        "def": "To obtain an artifact (e.g., document, evidence) or a legal result (e.g., judgment, sanctions)."
     }
 }

@@ -4,14 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- <style>
+        /* Style the dropdown suggestions */
+        .suggestions {
+            border: 1px solid #ccc;
+            background-color: white;
+            position: absolute;
+            z-index: 1;
+            display: none;
+            max-height: 150px; /* limit height for overflow */
+            overflow-y: auto;
+        }
+
+        /* Style individual suggestion items */
+        .suggestion {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        /* Hover effect for suggestions */
+        .suggestion:hover {
+            background-color: #f1f1f1;
+        }
+    </style> -->
+
+    <style>
+        body {
+            background-color: #111; /* Black background */
+            color: #f5f5f5; /* Light text */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            padding-top: 20px;
+            margin: 0;
+            font-size: 2em;
+            color: #e1e1e1; /* Light gray for headers */
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            position: relative; /* This ensures absolute positioning works for child elements */
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333; /* Dark background */
+            color: white; /* Light text */
+            outline: none;
+            transition: background-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            background-color: #444; /* Slightly lighter on focus */
+        }
+
+        input[type="submit"] {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #555; /* Gray background */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #666; /* Darker on hover */
+        }
+
+        /* Style the dropdown suggestions */
+        .suggestions {
+            border: 1px solid #444; /* Dark gray border */
+            background-color: #222; /* Dark background */
+            position: absolute;
+            z-index: 1;
+            display: none;
+            max-height: 150px; /* Limit height for overflow */
+            overflow-y: auto;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 5px; /* Adds space between input box and suggestions */
+            top: 100%; /* Aligns the dropdown right below the input */
+            left: 0; /* Align with the input's left edge */
+            right: 0; /* Align with the input's right edge */
+        }
+
+        /* Style individual suggestion items */
+        .suggestion {
+            padding: 8px;
+            cursor: pointer;
+            color: white; /* Light text for contrast */
+        }
+
+        /* Hover effect for suggestions */
+        .suggestion:hover {
+            background-color: #333; /* Slightly lighter on hover */
+        }
+    </style>
+
+    <!-- <link rel="stylesheet" href="/static/style.css"/> -->
 </head>
 <body>
     
     <h1>Welcome to ontology visualiser</h1>
-    <form action="#" method="POST">
-        <p><input type="text" name="class"/> </p>
-        <p><input type="submit",value="submit"/></p>
+    <form id="search-form" action="#" method="POST">
+        <p><input type="text" name="class" placeholder="Start typing .. " autocomplete="off" id="search-box"/> 
+            <input type="submit",value="submit"/>
+        </p>
+        <div class="suggestions" id="suggestions-dropdown"></div> 
+        <!-- <p><input type="submit",value="submit"/></p> -->
     </form>
+
+
+    
+
+    <script>
+        
+        var words = []
+            
+
+        var node_inf;
+        fetch('/static/names.json')
+        .then(response => response.json())
+        .then(data => {
+            
+            console.log("Success");
+
+            node_inf=data
+            words=Object.keys(data)
+            
+        })
+        .catch(error => {
+            console.error('Error loading data:', error);
+        });
+
+
+        const searchBox = document.getElementById("search-box");
+        const suggestionsDropdown = document.getElementById("suggestions-dropdown");
+
+        // Event listener for input changes
+        searchBox.addEventListener("input", function () {
+            const query = this.value.toLowerCase();
+            suggestionsDropdown.innerHTML = "";
+
+            if (query) {
+                const filteredWords = words.filter(word => word.toLowerCase().startsWith(query));
+                if (filteredWords.length > 0) {
+                    filteredWords.forEach(word => {
+                        const div = document.createElement("div");
+                        div.textContent = word;
+                        div.classList.add("suggestion");
+                        div.addEventListener("click", function () {
+                            searchBox.value = word;
+                            suggestionsDropdown.innerHTML = "";
+                        });
+                        suggestionsDropdown.appendChild(div);
+                    });
+                    suggestionsDropdown.style.display = "block"; // Show the suggestions
+                } else {
+                    suggestionsDropdown.style.display = "none"; // Hide if no suggestions
+                }
+            } else {
+                suggestionsDropdown.style.display = "none"; // Hide if no query
+            }
+        });
+
+        // Event listener for form submission
+        document.getElementById("search-form").addEventListener("submit", function (e) {
+           
+            
+            console.log("User submitted:", searchBox.value); // Handle form submission
+            suggestionsDropdown.style.display = "none"; // Hide suggestions on submit
+        });
+    </script>
+
+
+    
     
 </body>
 </html>
